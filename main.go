@@ -11,7 +11,7 @@ import (
 	"github.com/kytrinyx/fish/fish"
 )
 
-var msg = flag.String("msg", "Hello, World!", "What the will say.")
+var msg = flag.String("msg", "Hello, World!", "What they will say.")
 
 func main() {
 	flag.Parse()
