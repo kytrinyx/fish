@@ -3,6 +3,8 @@ package main
 import (
 	"math/rand"
 	"testing"
+
+	"github.com/kytrinyx/fish/fish"
 )
 
 const errMsg = `%s looks weird (seed: %d).
@@ -34,9 +36,9 @@ func TestFishBody(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		f := NewFish(rand.New(rand.NewSource(test.seed)))
-		if f.body != test.body {
-			t.Errorf(errMsg, "Fish", test.seed, f.body, test.body)
+		f := fish.New(rand.New(rand.NewSource(test.seed)))
+		if f.Body != test.body {
+			t.Errorf(errMsg, "Fish", test.seed, f.Body, test.body)
 		}
 
 		said := f.Say("OHAI")

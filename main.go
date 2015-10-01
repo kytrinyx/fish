@@ -6,6 +6,8 @@ package main
 import (
 	"flag"
 	"fmt"
+
+	"github.com/kytrinyx/fish/fish"
 )
 
 var msg = flag.String("msg", "Hello, World!", "What the will say.")
@@ -13,5 +15,5 @@ var msg = flag.String("msg", "Hello, World!", "What the will say.")
 func main() {
 	flag.Parse()
 
-	fmt.Println(NewFish(nil).Say(*msg))
+	fmt.Println(fish.New(nil).Say(*msg))
 }
