@@ -6,14 +6,12 @@ package main
 import (
 	"flag"
 	"fmt"
-
-	"github.com/kytrinyx/fish/bubbles"
 )
 
-var msg = flag.String("msg", "Hello, World!", "The text that you want embellished.")
+var msg = flag.String("msg", "Hello, World!", "What the will say.")
 
 func main() {
 	flag.Parse()
 
-	fmt.Println(bubbles.Embellish(*msg))
+	fmt.Println(NewFish(nil).Say(*msg))
 }
