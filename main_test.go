@@ -3,11 +3,9 @@ package main
 import (
 	"math/rand"
 	"testing"
-
-	"github.com/kytrinyx/fish/fish"
 )
 
-const errMsg = `%s looks weird (seed: %d).
+const errMsg = `Output looks weird (seed: %d).
 
 Got:
 %s
@@ -20,30 +18,24 @@ Want:
 // Not "real" unit tests, per se. I wrote them
 // as golden master tests, and am leaving them
 // in place because they work well as a regression.
-func TestFishBody(t *testing.T) {
+func TestDoodle(t *testing.T) {
 	tests := []struct {
-		seed int64
-		body string
-		said string
+		seed   int64
+		doodle string
 	}{
-		{2, "><<˚>", "         ºº. OHAI o.•.\n><<˚> ·°"},
-		{3, "><(((˚>", "           •˚˚ OHAI .º.˚\n><(((˚> ·°"},
-		{5, "><<<º>", "          ˚˚o OHAI oº˚.\n><<<º> ·°"},
-		{7, "><<˚>", "         ˚ºº OHAI ˚o˚.\n><<˚> ·°"},
-		{11, "><((('>", "          ˚.. OHAI .O˚•\n><((('> ·°"},
-		{13, "><(˚>", "         ˚.• OHAI ˚O˚.\n><(˚> ·°"},
-		{17, "><{{{º>", "           º˚. OHAI ˚º..\n><{{{º> ·°"},
+		{2, "         ºº. OHAI o.•.\n><<˚> ·°"},
+		{3, "           •˚˚ OHAI .º.˚\n><(((˚> ·°"},
+		{5, "          ˚˚o OHAI oº˚.\n><<<º> ·°"},
+		{7, "         ˚ºº OHAI ˚o˚.\n><<˚> ·°"},
+		{11, "          ˚.. OHAI .O˚•\n><((('> ·°"},
+		{13, "         ˚.• OHAI ˚O˚.\n><(˚> ·°"},
+		{17, "           º˚. OHAI ˚º..\n><{{{º> ·°"},
 	}
 
 	for _, test := range tests {
-		f := fish.New(rand.New(rand.NewSource(test.seed)))
-		if f.Body != test.body {
-			t.Errorf(errMsg, "Fish", test.seed, f.Body, test.body)
-		}
-
-		said := f.Say("OHAI")
-		if said != test.said {
-			t.Errorf(errMsg, "Speech", test.seed, said, test.said)
+		doodle := Doodle("OHAI", rand.New(rand.NewSource(test.seed)))
+		if doodle != test.doodle {
+			t.Errorf(errMsg, test.seed, doodle, test.doodle)
 		}
 	}
 }
