@@ -16,6 +16,7 @@ var msg = flag.String("msg", "Hello, World!", "What they will say.")
 func main() {
 	flag.Parse()
 
+	fmt.Println()
 	fmt.Println(Doodle(*msg, nil))
 }
 
