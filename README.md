@@ -23,3 +23,9 @@ This is a command-line client that generates random talking-fish ascii art.
     ><««˚> ·°
 
 The default message is "Hello, World!"
+
+## License
+
+The MIT License (MIT)
+
+Copyright (C) 2016 Katrina Owen, _@kytrinyx.com
